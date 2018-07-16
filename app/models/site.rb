@@ -1,5 +1,4 @@
 class Site < ApplicationRecord
-  belongs_to :user
   #has_many :windows, dependent: :destroy
   has_many :comments
   has_many :users, through: :comments
