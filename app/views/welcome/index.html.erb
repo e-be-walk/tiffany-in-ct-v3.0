@@ -1,0 +1,13 @@
+<h1>Filter by:</h1>
+<h3><%= link_to('Sites', '/sites/') %></h3>
+
+<h1>Or Browse:</h1>
+<h2>Site Entries:</h2>
+<div class="row">
+  <% @sites.each do |site| %>
+    <div class="col-md-3">
+    <%= image_tag site.image.url(:medium) %><br>
+    <h4><%= link_to site.name, site_path(site) %></h4>
+    </div>
+<% end %>
+</div>

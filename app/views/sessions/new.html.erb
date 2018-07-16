@@ -1,0 +1,14 @@
+<%= form_tag signin_path, method: :post do %>
+  <p><label>User name:</label>
+  <%= text_field_tag :name %> </p>
+
+  <p><label>Email: </label>
+  <%= text_field_tag :email %></p>
+
+  <p><label>Password:</label>
+  <%= password_field_tag :password %></p>
+
+  <p><%= submit_tag "Sign In" %></p>
+<% end %>
+
+<p><%= link_to('Log in with Facebook!', '/auth/facebook') %></p>

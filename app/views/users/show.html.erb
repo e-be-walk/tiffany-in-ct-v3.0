@@ -1,0 +1,15 @@
+<h1><%= "Hello, #{@user.name}." %> </h1>
+
+  <h2>What would you like to do today?</h2>
+  <h3><%= link_to "Create a new site", new_user_site_path(current_user, @site) %></h3>
+  <h3><%= link_to "Browse the Tiffany Index", index_path %></h3>
+
+    <h3>Update one of your existing sites:</h3>
+    <div class="row">
+      <% current_user.sites.each do |site| %>
+        <div class="col-md-3">
+        <%= image_tag site.image.url(:medium) %>
+        <%= link_to site.name, user_site_path(site) %>
+        </div>
+    <% end %>
+  </div>

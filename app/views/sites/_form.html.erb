@@ -1,0 +1,35 @@
+<div class='site_container'>
+  <div class='form'>
+
+
+    <%= form_for [@user, @site] do |f| %>
+
+      <p><%= f.label :name %>
+      <%= f.text_field :name %></p>
+
+      <p><%= f.label :street_address %>
+      <%= f.text_field :street_address %></p>
+
+      <p><%= f.label :city %>
+      <%= f.text_field :city %></p>
+
+      <p><%= f.label :zip_code %>
+      <%= f.text_field :zip_code %></p>
+
+      <p><%= f.label :contact_info %>
+      <%= f.text_area :contact_info %></p>
+
+      <p><%= f.label :accessibility %>
+      <%= f.text_area :accessibility %></p>
+
+      <p><%= f.label :site_info %>
+      <%= f.text_area :site_info %></p>
+
+      <p><%= f.label :image %>
+      <%= f.file_field :image %></p>
+
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <p><%= f.submit "Submit Your Site Info" %></p>
+    <% end %>
+  </div>
+</div>

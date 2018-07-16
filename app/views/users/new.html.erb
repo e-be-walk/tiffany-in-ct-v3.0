@@ -1,0 +1,23 @@
+<div class="error">
+  <% if flash[:message] %>
+  <h1><%= flash[:message] %></h1>
+  <% end %>
+</div>
+
+<%= form_for @user, controller: 'users', action: 'create' do |f| %>
+<h1>Create your own user profile:</h1>
+
+  <p><%= f.label :name %>
+    <%= f.text_field :name %></p>
+
+  <p><%= f.label :email %>
+    <%= f.text_field :email %></p>
+
+  <p><%= f.label :password %>
+    <%= f.password_field :password %></p>
+
+
+  <p><%= f.submit "Create User" %></p>
+<% end %>
+
+<h3><%= link_to('Or, Log in with Facebook!', '/auth/facebook') %></h3>
