@@ -14,10 +14,10 @@ class CommentsController < ApplicationController
     if @comment.valid?
       @comment.save
       @site.comments << @comment
-      redirect_to user_site_path(@site)
+      redirect_to site_path(@site)
     else
       flash[:message] = "Please enter a comment."
-      redirect_to new_user_site_comment_path
+      redirect_to new_comment_path
     end
   end
 

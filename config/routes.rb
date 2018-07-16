@@ -11,16 +11,15 @@ Rails.application.routes.draw do
   #get '/sites' => 'sites#index'
   root 'welcome#about'
 
-  resources :users do
-    resources :comments
-  end
+  resources :users
   resources :sites do
     collection do
       get :recent
       #get :active
     end
-    resources :comments
-    end
+  end
+  resources :comments
+
 
 
 

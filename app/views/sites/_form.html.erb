@@ -2,7 +2,7 @@
   <div class='form'>
 
 
-    <%= form_for [@user, @site] do |f| %>
+    <%= form_for @site do |f| %>
 
       <p><%= f.label :name %>
       <%= f.text_field :name %></p>

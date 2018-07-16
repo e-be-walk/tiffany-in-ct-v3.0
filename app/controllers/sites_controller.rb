@@ -6,12 +6,11 @@ class SitesController < ApplicationController
 
   def show
     #raise params.inspect
-    
-    @site = Site.find_by(params[:id])
+
+    @site = Site.find(params[:id])
   end
 
   def new
-    @user = current_user
     @site = Site.new
   end
 
@@ -20,28 +19,25 @@ class SitesController < ApplicationController
   end
 
   def create
-    @user = current_user
     @site = Site.create(site_params)
     if @site.valid?
       @site.save
-      redirect_to user_site_path(@user, @site)
+      redirect_to site_path(@site)
     else
       flash[:message] = "Please ensure that at the very least, your site has a name."
-      redirect_to new_user_site_path
+      redirect_to new_site_path
     end
   end
 
   def edit
-    @user = current_user
     @site = Site.find(params[:id])
   end
 
   def update
-    @user = current_user
     @site = Site.find(params[:id])
     @site.update(site_params)
     if @site.save
-      redirect_to user_site_path(@user, @site)
+      redirect_to site_path(@site)
     else
       render :edit
     end
