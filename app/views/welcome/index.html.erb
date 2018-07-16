@@ -7,7 +7,7 @@
   <% @sites.each do |site| %>
     <div class="col-md-3">
     <%= image_tag site.image.url(:medium) %><br>
-    <h4><%= link_to site.name, site_path(site) %></h4>
+    <h4><%= link_to site.name, user_site_path(@user, site) %></h4>
     </div>
 <% end %>
 </div>

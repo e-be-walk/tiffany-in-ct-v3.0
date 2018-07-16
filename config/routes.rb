@@ -17,9 +17,10 @@ Rails.application.routes.draw do
         get :recent
         #get :active
       end
+      resources :comments
     end
-    resources :user_comments
   end
+
 
 
 

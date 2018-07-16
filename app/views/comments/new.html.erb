@@ -9,12 +9,13 @@
 
 <h1>Create a new comment about this site: </h1>
 
-  <%= form_for [@site, @user_comments], html: { multipart: true } do |f| %>
+  <%= form_for [@site, @comments], html: { multipart: true } do |f| %>
 
 
   <p><%= f.label :comment_text %>
   <%= f.text_area :comment_text %></p>
 
+  <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.hidden_field :site_id, :value => @site.id %>
   <p><%= f.submit "Submit Your Comment" %></p>
 <% end %>

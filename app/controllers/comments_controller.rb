@@ -2,27 +2,29 @@ class CommentsController < ApplicationController
   #before_action :set_user, only: [:show, :edit, :destroy]
 
   def new
-    @site = Site.find(params[:site_id])
+    @user = current_user
+    #@site = Site.find_by(params[:id])
     @comments = Comment.new
   end
 
   def create
-    #@user = current_user
-    @site = Site.find(params[:site_id])
+    @user = current_user
+    @site = Site.find_by(params[:id])
     @comment = Comment.create(comment_params)
     if @comment.valid?
       @comment.save
       @site.comments << @comment
-      redirect_to site_path(@site)
+      redirect_to user_site_path(@site)
     else
       flash[:message] = "Please enter a comment."
-      redirect_to new_site_comment_path
+      redirect_to new_user_site_comment_path
     end
   end
 
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
+    flash[:message] = "Removed."
     redirect_to user_path(current_user)
   end
 

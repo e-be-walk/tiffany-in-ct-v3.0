@@ -5,8 +5,9 @@ class SitesController < ApplicationController
   skip_before_action :current_user, only: [:show]
 
   def show
-    @user = current_user
-    @site = Site.find(params[:id])
+    #raise params.inspect
+    
+    @site = Site.find_by(params[:id])
   end
 
   def new
@@ -31,6 +32,7 @@ class SitesController < ApplicationController
   end
 
   def edit
+    @user = current_user
     @site = Site.find(params[:id])
   end
 
